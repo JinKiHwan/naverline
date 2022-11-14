@@ -1,0 +1,20 @@
+.rolling_wrap {
+	position: relative;
+	width: 100%;
+	min-height: 200px;
+	height: 200px;
+	
+	margin: auto;
+	margin-top: 20px;
+	overflow: hidden;
+}
+
+.rolling_wrap a {
+	position: absolute;
+	background: #0ff;
+	width: 180px;
+	height: 100%;
+	margin-left: 5px;
+	margin-right: 5px;
+	overflow: hidden;
+}

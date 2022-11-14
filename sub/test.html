@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>isotope</title>
+  <style>
+    button {
+      background: #000;
+      color: #fff;
+      border-radius: 50px;
+      padding: 10px 20px;    }
+
+    .grid {
+      margin-top: 50px;
+    }
+
+    .grid-item {
+      color: #fff;
+      float: left;
+      padding: 20px;
+      margin: 0 10px;
+    }
+
+    .item1 {
+      background: #f00;
+    }
+
+    .item2 {
+      background: #000;
+    }
+
+    .item3 {
+      background: #00f;
+    }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <div class="btn">
+    <button data-filter="*">전체보기</button>
+    <button data-filter=".item1">btn1</button>
+    <button data-filter=".item2">btn2</button>
+    <button data-filter=".item3">btn3</button>
+  </div>
+
+
+  <div class="grid">
+    <div class="grid-item item1">item1</div>
+    <div class="grid-item item2">item2</div>
+    <div class="grid-item item3">item3</div>
+    <div class="grid-item item3">item3</div>
+    <div class="grid-item item2">item2</div>
+    <div class="grid-item item1">item1</div>
+    <div class="grid-item item2">item2</div>
+    <div class="grid-item item3">item3</div>
+    <div class="grid-item item2">item2</div>
+    <div class="grid-item item1">item1</div>
+  </div>
+
+  <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+  <script>
+    var $grid = $('.grid').isotope({
+      itemSelector: '.grid-item',
+      //layoutMode: 'fitRows'
+    });
+
+    $grid.isotope({ filter: '*' });
+
+    // filter items on button click
+    $('.btn').on('click', 'button', function () {
+      var filterValue = $(this).attr('data-filter');
+      $grid.isotope({ filter: filterValue });
+    });
+  </script>
+</body>
+
+</html>
